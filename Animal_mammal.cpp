@@ -18,6 +18,14 @@ public:
     mammal(const std::string& Name, int Age) : name(Name), age(Age) {
         std::cout << name << " It's the name" << std::endl;
     }
+
+    bool operator<(const mammal& obj) const {
+        return age < obj.age;
+    }
+
+    bool operator>(const mammal& obj) const {
+        return age > obj.age;
+    }
 };
 
 class Lion : public mammal {
@@ -42,12 +50,14 @@ public:
 };
 
 int main() {
-    Lion lion("Reks", 10);
-    lion.number_of_legs();
-    lion.sound();
-    lion.color();
-    lion.behavior();
+    Lion lion1("Reks", 10);
+    Lion lion2("Mufasa", 15);
 
+    lion1.number_of_legs();
+    lion1.sound();
+    lion1.color();
+    lion1.behavior();
+    std::cout << (lion1 < lion2) << std:: endl;
     return 0;
 }
 
